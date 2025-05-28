@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Preferencias de Canchas de Padel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        /* Estilo personalizado para la fuente Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Un gris claro para el fondo */
+        }
+        /* Estilos para el logo y el título */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .logo {
+            width: 150px; /* Tamaño del logo */
+            height: 150px;
+            background-color: #FFD700; /* Amarillo para el logo */
+            border-radius: 50%; /* Circular */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #000; /* Texto negro */
+            margin-bottom: 1rem;
+            overflow: hidden; /* Asegura que el contenido no se desborde */
+        }
+        .logo span {
+            line-height: 1; /* Ajusta la altura de línea para centrar el texto */
+        }
+        .club-title {
+            font-size: 3.5rem; /* Tipografía grande */
+            font-weight: 700;
+            color: #000; /* Negro para el título */
+            text-transform: uppercase;
+        }
+        /* Estilo para el botón de exportar */
+        .export-button {
+            background-color: #10B981; /* Verde esmeralda */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .export-button:hover {
+            background-color: #059669; /* Verde más oscuro al pasar el ratón */
+        }
+        /* Estilo para los iconos de redes sociales */
+        .social-icon {
+            font-size: 2rem;
+            color: #4B5563; /* Gris oscuro */
+            transition: color 0.3s ease;
+        }
+        .social-icon:hover {
+            color: #1F2937; /* Gris más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 lg:p-12">
+    <div class="max-w-4xl mx-auto bg-white p-6 md:p-8 lg:p-10 rounded-xl shadow-lg">
+
+        <div class="logo-container">
+            <div class="logo">
+                <span>Padel<br>Para<br>Todos</span>
+            </div>
+            <h1 class="club-title">Organización Padel para todos</h1>
+        </div>
+
+        <section class="mb-8 p-6 bg-gray-50 rounded-lg shadow-inner">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Sobre Nosotros</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Misión</h3>
+                    <p class="text-gray-600">Fomentar la pasión por el pádel, ofreciendo instalaciones de primera clase y una comunidad vibrante para jugadores de todos los niveles, promoviendo un estilo de vida activo y saludable.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Visión</h3>
+                    <p class="text-gray-600">Ser el club de pádel líder en la región, reconocido por nuestra excelencia en servicio, innovación en programas deportivos y compromiso con el desarrollo integral de nuestros socios.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Valores</h3>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li>Pasión por el deporte</li>
+                        <li>Comunidad y compañerismo</li>
+                        <li>Integridad y respeto</li>
+                        <li>Excelencia y mejora continua</li>
+                        <li>Inclusión y diversión</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="survey-section" class="mb-8 p-6 bg-blue-50 rounded-lg shadow-inner">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Encuesta de Preferencias</h2>
+
+            <div class="mb-6 p-4 border border-blue-200 rounded-md bg-white">
+                <p class="text-lg font-medium text-gray-700 mb-3">1. ¿Qué tan importante es la ubicación de las canchas de pádel?</p>
+                <div class="flex flex-col space-y-2">
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="q1" value="Poco" class="form-radio text-blue-600 h-5 w-5 rounded-full">
+                        <span class="ml-2 text-gray-700">Poco</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="q1" value="Mucho" class="form-radio text-blue-600 h-5 w-5 rounded-full">
+                        <span class="ml-2 text-gray-700">Mucho</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="q1" value="No es relevante" class="form-radio text-blue-600 h-5 w-5 rounded-full">
+                        <span class="ml-2 text-gray-700">No es relevante</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-6 p-4 border border-blue-200 rounded-md bg-white">
+                <p class="text-lg font-medium text-gray-700 mb-3">2. ¿Qué crees que deberían tener las canchas de pádel como alternativas?</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q2" value="Gimnasio" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Gimnasio</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q2" value="Entrenamiento funcional" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Entrenamiento funcional</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q2" value="Ludoteka" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Ludoteka</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q2" value="Calistenia" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Calistenia</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q2" value="Canchas de Tennis" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Canchas de Tennis</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q2" value="Cancha de Futbol rapido" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Cancha de Futbol rápido</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-6 p-4 border border-blue-200 rounded-md bg-white">
+                <p class="text-lg font-medium text-gray-700 mb-3">3. ¿Qué prefieres como usuario sobre el restaurante?</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q3" value="Poco menu snacks" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Poco menú snacks</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q3" value="Menu extenso" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Menú extenso</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q3" value="Menu saludable" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Menú saludable</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q3" value="Menu variado" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Menú variado</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q3" value="Jugos de fruta" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Jugos de fruta</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q3" value="Malteadas" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Malteadas</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-6 p-4 border border-blue-200 rounded-md bg-white">
+                <p class="text-lg font-medium text-gray-700 mb-3">4. ¿Qué te gusta de bebidas?</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q4" value="Agua" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Agua</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q4" value="Gatorade" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Gatorade</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q4" value="Pedialite" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Pedialyte</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q4" value="Jugos" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Jugos</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="checkbox" name="q4" value="Cervezas" class="form-checkbox text-blue-600 h-5 w-5 rounded">
+                        <span class="ml-2 text-gray-700">Cervezas</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-6 p-4 border border-blue-200 rounded-md bg-white">
+                <p class="text-lg font-medium text-gray-700 mb-3">5. ¿Qué tan regular juegas pádel por semana?</p>
+                <div class="flex flex-col space-y-2">
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="q5" value="1 vez por semana" class="form-radio text-blue-600 h-5 w-5 rounded-full">
+                        <span class="ml-2 text-gray-700">1 vez por semana</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="q5" value="dos o tres veces por semana" class="form-radio text-blue-600 h-5 w-5 rounded-full">
+                        <span class="ml-2 text-gray-700">2 o 3 veces por semana</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="q5" value="4 o mas veces por semana" class="form-radio text-blue-600 h-5 w-5 rounded-full">
+                        <span class="ml-2 text-gray-700">4 o más veces por semana</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <section id="registration-section" class="mb-8 p-6 bg-green-50 rounded-lg shadow-inner">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Formulario de Inscripción al Club</h2>
+            <div class="mb-4">
+                <label for="nombre" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Tu nombre completo">
+            </div>
+            <div class="mb-4">
+                <label for="telefono" class="block text-gray-700 text-sm font-bold mb-2">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Tu número de teléfono">
+            </div>
+        </section>
+
+        <div class="flex justify-center mb-8">
+            <button id="exportPdfBtn" class="export-button">
+                Exportar Encuesta y Formulario a PDF
+            </button>
+        </div>
+
+        <footer class="text-center py-6 border-t border-gray-200 mt-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Síguenos en nuestras redes sociales</h3>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.instagram.com/" target="_blank" class="social-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank" class="social-icon" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank" class="social-icon" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const exportPdfBtn = document.getElementById('exportPdfBtn');
+            const surveySection = document.getElementById('survey-section');
+            const registrationSection = document.getElementById('registration-section');
+            const nombreInput = document.getElementById('nombre');
+            const telefonoInput = document.getElementById('telefono');
+
+            // Función para recopilar los datos de la encuesta
+            function getSurveyData() {
+                const data = {};
+
+                // Pregunta 1: Radio button
+                const q1 = document.querySelector('input[name="q1"]:checked');
+                data['1. Importancia de la ubicación'] = q1 ? q1.value : 'No respondido';
+
+                // Pregunta 2: Checkboxes
+                const q2 = Array.from(document.querySelectorAll('input[name="q2"]:checked')).map(cb => cb.value);
+                data['2. Alternativas en canchas'] = q2.length > 0 ? q2.join(', ') : 'Ninguna seleccionada';
+
+                // Pregunta 3: Checkboxes
+                const q3 = Array.from(document.querySelectorAll('input[name="q3"]:checked')).map(cb => cb.value);
+                data['3. Preferencias de restaurante'] = q3.length > 0 ? q3.join(', ') : 'Ninguna seleccionada';
+
+                // Pregunta 4: Checkboxes
+                const q4 = Array.from(document.querySelectorAll('input[name="q4"]:checked')).map(cb => cb.value);
+                data['4. Preferencias de bebidas'] = q4.length > 0 ? q4.join(', ') : 'Ninguna seleccionada';
+
+                // Pregunta 5: Radio button
+                const q5 = document.querySelector('input[name="q5"]:checked');
+                data['5. Regularidad de juego'] = q5 ? q5.value : 'No respondido';
+
+                return data;
+            }
+
+            // Función para recopilar los datos del formulario de inscripción
+            function getRegistrationData() {
+                return {
+                    'Nombre': nombreInput.value.trim(),
+                    'Teléfono': telefonoInput.value.trim()
+                };
+            }
+
+            // Función para limpiar la encuesta y el formulario
+            function clearForms() {
+                // Limpiar radio buttons
+                document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+                // Limpiar checkboxes
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+                // Limpiar campos de texto
+                nombreInput.value = '';
+                telefonoInput.value = '';
+            }
+
+            // Manejador del evento click para el botón de exportar PDF
+            exportPdfBtn.addEventListener('click', () => {
+                const surveyData = getSurveyData();
+                const registrationData = getRegistrationData();
+
+                // Crear el contenido HTML para el PDF
+                let pdfContent = `
+                    <h1 style="text-align: center; color: #1F2937; margin-bottom: 20px;">Reporte de Encuesta y Registro - Padel Para Todos</h1>
+
+                    <div style="margin-bottom: 30px; padding: 15px; border: 1px solid #D1D5DB; border-radius: 8px; background-color: #F9FAFB;">
+                        <h2 style="color: #4B5563; margin-bottom: 15px;">Datos de Registro</h2>
+                        <p><strong>Nombre:</strong> ${registrationData.Nombre || 'No proporcionado'}</p>
+                        <p><strong>Teléfono:</strong> ${registrationData.Teléfono || 'No proporcionado'}</p>
+                    </div>
+
+                    <div style="padding: 15px; border: 1px solid #D1D5DB; border-radius: 8px; background-color: #F9FAFB;">
+                        <h2 style="color: #4B5563; margin-bottom: 15px;">Respuestas de la Encuesta</h2>
+                `;
+
+                for (const [key, value] of Object.entries(surveyData)) {
+                    pdfContent += `<p><strong>${key}:</strong> ${value}</p>`;
+                }
+
+                pdfContent += `</div>`;
+
+                // Configuración de html2pdf
+                const options = {
+                    margin: 10,
+                    filename: 'encuesta_padel_resultados.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, logging: true, dpi: 192, letterRendering: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+
+                // Generar y descargar el PDF
+                html2pdf().from(pdfContent).set(options).save().then(() => {
+                    // Limpiar los formularios después de la exportación
+                    clearForms();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
